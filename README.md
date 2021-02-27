@@ -2,7 +2,7 @@
 pdir webtools for contao web development
 
 ## Features in this bundle
-- nothing
+- nothing yet
 
 ## New functions through dependencies 🛠
 
