@@ -18,6 +18,7 @@
   "require": {
     "php": "^7.1",
     "contao/core-bundle": "^4.4",
-    "richardhj/contao-backup-manager": "^1.0"
+    "richardhj/contao-backup-manager": "^1.0",
+    "pdir/contao-sticky-footer": "^1.0"
   }
 }
