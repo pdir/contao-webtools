@@ -1,0 +1,34 @@
+{
+  "name": "pdir/contao-webtools",
+  "type": "metapackage",
+  "description": "Install pdir webtools dependencies via Contao Manager or Composer",
+  "keywords": [
+    "contao",
+    "pdir",
+    "tools",
+    "development"
+  ],
+  "license": "LGPL-3.0-or-later",
+  "authors": [
+        {
+            "name": "Contao Entwickler gesucht",
+            "homepage": "https://pdir.de"
+        }
+    ],
+  "require": {
+    "php": ">=7.4",
+    "contao/core-bundle": "^4.9",
+    "pdir/contao-sticky-footer": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "symfony/phpunit-bridge": "^6.1",
+    "contao/easy-coding-standard": "^3.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "contao-components/installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
