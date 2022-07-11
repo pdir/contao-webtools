@@ -14,10 +14,6 @@ namespace Pdir\ContaoWebtools;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class PdirContaoWebtoolsBundle extends Bundle
+class PdirContaoWebtools extends Bundle
 {
-    public function __construct()
-    {
-        dump(__FUNCTION__);
-    }
 }
