@@ -2,21 +2,22 @@
     "name": "pdir/contao-webtools",
     "description": "Install pdir webtools dependencies via Contao Manager or Composer",
     "license": "LGPL-3.0-or-later",
-    "type": "metapackage",
+    "type": "contao-bundle",
     "authors": [
         {
-            "name": "Leo Feyer",
-            "homepage": "https://github.com/leofeyer"
+            "name": "pdir GmbH",
+            "homepage": "https://pdir.de"
         },
         {
-            "name": "Contao Community",
-            "homepage": "https://contao.org/contributors"
+            "name": "Mathias Arzberger",
+            "homepage": "https://pdir.de",
+            "role": "Developer"
         }
     ],
-    "homepage": "https://contao.org",
+    "homepage": "https://pdir.de",
     "support": {
-        "issues": "https://github.com/contao/skeleton-bundle/issues",
-        "source": "https://github.com/contao/skeleton-bundle"
+        "issues": "https://github.com/pdir/contao-webtools/issues",
+        "source": "https://github.com/pdir/contao-webtools"
     },
     "require": {
         "php": "^7.4 || ^8.0",
