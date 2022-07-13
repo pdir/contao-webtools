@@ -16,13 +16,3 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-$GLOBALS['BE_MOD']['pdir']['pano_product'] = [
-    'tables' => ['tl_pano_product'],
-    'stylesheet' => 'assets/app/css/be.css',
-];
-
-/*
- * Models
- */
-//$GLOBALS['TL_MODELS']['tl_pano_product'] = PanoProductModel::class;

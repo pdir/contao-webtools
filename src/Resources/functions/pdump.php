@@ -17,13 +17,24 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ContaoWebtools;
+use Contao\System;
+use Symfony\Component\VarDumper\VarDumper;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+if (!function_exists('pdump')) {
+    function pdump($var, ...$moreVars)
+    {
+        if (System::getContainer()->get('kernel')->isDebug()) {
+            VarDumper::dump($var);
 
-// Load pdir global functions
-require_once __DIR__.'/Resources/functions/pdump.php';
+            foreach ($moreVars as $v) {
+                VarDumper::dump($v);
+            }
 
-class PdirContaoWebtoolsBundle extends Bundle
-{
+            if (1 < func_num_args()) {
+                return func_get_args();
+            }
+
+            return $var;
+        }
+    }
 }
