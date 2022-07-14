@@ -2,3 +2,9 @@ services:
     _defaults:
         autowire: true
         autoconfigure: true
+
+    # Listener / Hooks
+    pdir.contaowebtools.listener.initializesystem:
+        class: Pdir\ContaoWebtools\EventListener\InitializeSystemListener
+        arguments:
+            - "@request_stack"

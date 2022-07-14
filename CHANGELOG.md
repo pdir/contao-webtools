@@ -10,6 +10,12 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.2.3]() - 2022-07-14
+
+- [Added] ...the possibility for the frontend user **to delete** the assets/css after modifying files in files/mate/scss. The deletion can be triggered by the additional request
+key ?**scripts=purge**. The developer editing the modifications via FTP or similar must allow this function with the ENV variable **WEBTOOLS_ALLOW_PURGE=true**. The frontend user now
+can add the key **?scripts=purge** like https://mydomain/?scripts=purge to the query string and the cache will be purged.
+
 ## [1.2.2](https://github.com/pdir/contao-webtools/tree/1.2.2) - 2022-07-11
 
 - [Removed] ⚠ contao-backup-manager. With the new backup command introduced in Contao 4.13, this bundle will not be maintained anymore. Please refer to <https://docs.contao.org/manual/en/cli/db-backups>.
