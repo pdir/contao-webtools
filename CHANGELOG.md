@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.2.2](https://github.com/pdir/contao-webtools/tree/1.2.2) - 2022-07-11
+## [1.3.0](https://github.com/pdir/contao-webtools/tree/1.2.2) - 2022-07-14
 
 - [Removed] ⚠ contao-backup-manager. With the new backup command introduced in Contao 4.13, this bundle will not be maintained anymore. Please refer to <https://docs.contao.org/manual/en/cli/db-backups>.
 - [Added] use contao ^4.9 || ^5.0
