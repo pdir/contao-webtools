@@ -20,30 +20,33 @@ declare(strict_types=1);
 namespace Pdir\ContaoWebtools\EventListener;
 
 use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\LayoutModel;
+use Contao\PageModel;
+use Contao\PageRegular;
 use Contao\System;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Webmozart\PathUtil\Path;
 
 /**
- * @Hook("initializeSystem")
+ * @Hook("generatePage")
  */
-class InitializeSystemListener
+class GeneratePageListener
 {
     private $scripts;
 
-    public function __construct(RequestStack $requestStack)
+    public function __invoke(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
-        $this->scripts = $requestStack->getCurrentRequest()->get('scripts');
-    }
+        $container = System::getContainer();
 
-    public function __invoke(): void
-    {
+        //pdump($container->getParameter( 'mate_theme.assets.scss_sources' ));
+
+        $this->scripts = $requestStack->getCurrentRequest()->get('scripts');
+
         if (
-            'true' === $_ENV['WEBTOOLS_ALLOW_PURGE'] &&
-            null !== $this->scripts &&
-            'purge' === $this->scripts
-        ) {
+                'true' === $_ENV['WEBTOOLS_ALLOW_PURGE'] &&
+                null !== $this->scripts &&
+                'purge' === $this->scripts
+            ) {
             $container = System::getContainer();
             $projectDir = $container->getParameter('kernel.project_dir');
             //$strCachePath = StringUtil::stripRootDir($container->getParameter('kernel.cache_dir'));
