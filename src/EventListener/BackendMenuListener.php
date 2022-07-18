@@ -65,7 +65,7 @@ class BackendMenuListener
 
     private function buildHeaderMenu(MenuEvent $event, BackendUser $user): void
     {
-        pdump(__FUNCTION__);
+        //pdump(__FUNCTION__);
         $factory = $event->getFactory();
         $tree = $event->getTree();
 
