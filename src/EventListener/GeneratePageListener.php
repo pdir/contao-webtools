@@ -25,6 +25,7 @@ use Contao\PageModel;
 use Contao\PageRegular;
 use Contao\System;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Webmozart\PathUtil\Path;
 
 /**
@@ -34,13 +35,19 @@ class GeneratePageListener
 {
     private $scripts;
 
+    /**
+     * @param PageModel $pageModel
+     * @param LayoutModel $layout
+     * @param PageRegular $pageRegular
+     * @return void
+     */
     public function __invoke(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
         $container = System::getContainer();
 
-        //pdump($container->getParameter( 'mate_theme.assets.scss_sources' ));
+//pdump($container->getParameter( 'mate_theme.assets.scss_sources' ));
 
-        $this->scripts = $requestStack->getCurrentRequest()->get('scripts');
+        $this->scripts = $container->get('request_stack')->getCurrentRequest()->get('scripts');
 
         if (
                 'true' === $_ENV['WEBTOOLS_ALLOW_PURGE'] &&
