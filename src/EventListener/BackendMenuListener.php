@@ -69,14 +69,13 @@ class BackendMenuListener
         $factory = $event->getFactory();
         $tree = $event->getTree();
 
-        //$purgeTitle = $this->translator->trans('MSC.manual', [], 'contao_default');
-        $purgeTitle = 'Purge';
+        $purgeTitle = $this->translator->trans('MSC.purge', [], 'contao_default');
 
         $purge = $factory
             ->createItem('purge')
             ->setLabel($purgeTitle)
-            ->setUri('https://to.contao.org/manual')
-            //->setLinkAttribute('class', 'icon-manual')
+            ->setUri('?script=purge')
+            ->setLinkAttribute('class', 'icon-purge')
             ->setLinkAttribute('title', $purgeTitle)
             ->setLinkAttribute('target', '_blank')
             ->setExtra('safe_label', true)

@@ -9,5 +9,8 @@ pdir webtools for contao web development
 
 - [🔒 Sticky Backend Footer](https://github.com/pdir/contao-sticky-footer/) Placement of the action buttons at the bottom of the screen.
 
+## Purge Script Cache Icon
+"zap" from https://feathericons.com/
+
 ## Wishlist
-- coming soon
+- add purge button to preview toolbar
