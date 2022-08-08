@@ -26,4 +26,17 @@ require_once __DIR__.'/Resources/functions/pdump.php';
 
 class PdirContaoWebtoolsBundle extends Bundle
 {
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
+
+    public function getContainerExtension()
+    {
+        if (null === $this->extension) {
+            $this->extension = $this->createContainerExtension();
+        }
+
+        return $this->extension;
+    }
 }

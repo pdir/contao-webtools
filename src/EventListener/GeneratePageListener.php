@@ -45,7 +45,11 @@ class GeneratePageListener
     {
         $container = System::getContainer();
 
-//pdump($container->getParameter( 'mate_theme.assets.scss_sources' ));
+        if (!$container->hasParameter('pdir_webtools.purge_sources')) {
+            return;
+        }
+
+// pdump($container->getParameter( 'pdir_webtools.purge_sources' ));
 
         $this->scripts = $container->get('request_stack')->getCurrentRequest()->get('scripts');
 
@@ -65,7 +69,7 @@ class GeneratePageListener
             // check if there are any search results
             if ($finder->hasResults()) {
                 $files = glob('assets/css/*.*');
-
+                // pdump($files);
                 foreach ($files as $file) {
                     if (is_file($file)) {
                         unlink($file);
