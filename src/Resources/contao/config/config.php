@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Contao\Combiner;
+use Contao\System;
 
 /*
  * Web-Tools Bundle for Contao Open Source CMS
@@ -19,9 +20,12 @@ use Contao\Combiner;
  * file that was distributed with this source code.
  */
 
-if ('BE' === TL_MODE) {
-    $assetsDir = 'bundles/pdircontaowebtools';
+$container = System::getContainer();
+$request = $container->get('request_stack')->getCurrentRequest();
 
+$assetsDir = 'bundles/pdircontaowebtools';
+
+if ($request && $container->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
     $combiner = new Combiner();
     $combiner->add($assetsDir . '/scss/backend.scss');
     $GLOBALS['TL_CSS'][] = str_replace('TL_ASSETS_URL', '', $combiner->getCombinedFile());
