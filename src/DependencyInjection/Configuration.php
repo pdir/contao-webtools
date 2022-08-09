@@ -17,18 +17,28 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ContaoWebtools\DependencyInjection;
+namespace Pdir\ContaoWebtoolsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 final class Configuration implements ConfigurationInterface
 {
+    /**
+     * {@inheritdoc}
+     */
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('pdir_webtools');
-        $treeBuilder
-            ->getRootNode()
+
+        // Keep compatibility with symfony/config < 4.2
+        if (method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->getRootNode();
+        } else {
+            $rootNode = $treeBuilder->root('pdir_webtools');
+        }
+
+        $rootNode
             ->children()
                 ->arrayNode('purge_sources')
                     ->prototype('scalar')

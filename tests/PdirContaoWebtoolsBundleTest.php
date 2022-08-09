@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @license LGPL-3.0-or-later
  */
 
-namespace Pdir\ContaoWebtools\Tests;
+namespace Pdir\ContaoWebtoolsBundle\Tests;
 
-use Pdir\ContaoWebtools\DependencyInjection\PdirContaoWebtoolsExtension;
+use Pdir\ContaoWebtoolsBundle\DependencyInjection\PdirContaoWebtoolsExtension;
 use PHPUnit\Framework\TestCase;
 
 class PdirContaoWebtoolsBundleTest extends TestCase
@@ -21,6 +21,6 @@ class PdirContaoWebtoolsBundleTest extends TestCase
     {
         $bundle = new PdirContaoWebtoolsExtension();
 
-        $this->assertInstanceOf('Pdir\ContaoWebtools\PdirContaoWebtoolsExtension', $bundle);
+        $this->assertInstanceOf('Pdir\ContaoWebtoolsBundle\PdirContaoWebtoolsExtension', $bundle);
     }
 }

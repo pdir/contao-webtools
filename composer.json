@@ -38,12 +38,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Pdir\\ContaoWebtools\\": "src/"
+            "Pdir\\ContaoWebtoolsBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pdir\\ContaoWebtools\\Tests\\": "tests/"
+            "Pdir\\ContaoWebtoolsBundle\\Tests\\": "tests/"
         }
     },
     "config": {
@@ -59,7 +59,7 @@
             "bin-links": false,
             "target-directory": "tools"
         },
-        "contao-manager-plugin": "Pdir\\ContaoWebtools\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Pdir\\ContaoWebtoolsBundle\\ContaoManager\\Plugin"
     },
     "scripts": {
         "all": [

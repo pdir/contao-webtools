@@ -6,7 +6,7 @@ services:
     # Listener / Hooks
 
     pdir.contaowebtools.listener.menu.backend:
-        class: Pdir\ContaoWebtools\EventListener\BackendMenuListener
+        class: Pdir\ContaoWebtoolsBundle\EventListener\BackendMenuListener
         public: true
         arguments:
             - '@security.helper'
@@ -19,5 +19,5 @@ services:
             #- { name: kernel.event_listener, priority: 10 }
 
     pdir.contaowebtools.listener.page.generate:
-        class: Pdir\ContaoWebtools\EventListener\GeneratePageListener
+        class: Pdir\ContaoWebtoolsBundle\EventListener\GeneratePageListener
 

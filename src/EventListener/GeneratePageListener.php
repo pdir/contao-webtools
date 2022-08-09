@@ -17,7 +17,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ContaoWebtools\EventListener;
+namespace Pdir\ContaoWebtoolsBundle\EventListener;
 
 use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\LayoutModel;
