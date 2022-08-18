@@ -21,5 +21,5 @@ use Symfony\Component\HttpFoundation\Request;
  */
 
 if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
-    $GLOBALS['TL_CSS'][] = 'bundles/pdircontaostickyfooter/scss/backend.scss|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/pdircontaowebtools/scss/backend.scss|static';
 }
