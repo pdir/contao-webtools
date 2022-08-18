@@ -20,8 +20,6 @@ use Symfony\Component\HttpFoundation\Request;
  * file that was distributed with this source code.
  */
 
-$assetsDir = 'bundles/pdircontaowebtools';
-
 if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
     $GLOBALS['TL_CSS'][] = 'bundles/pdircontaostickyfooter/scss/backend.scss|static';
 }
