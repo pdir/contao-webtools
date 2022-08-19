@@ -30,13 +30,4 @@ class PdirContaoWebtoolsBundle extends Bundle
     {
         return \dirname(__DIR__);
     }
-
-    public function getContainerExtension()
-    {
-        if (null === $this->extension) {
-            $this->extension = $this->createContainerExtension();
-        }
-
-        return $this->extension;
-    }
 }
