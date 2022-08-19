@@ -36,9 +36,4 @@ class PdirContaoWebtoolsExtension extends ConfigurableExtension
 
         $container->setParameter('pdir_webtools.purge_sources', $config['purge_sources']);
     }
-
-    public function getAlias(): string
-    {
-        return 'pdir_webtools';
-    }
 }
