@@ -79,7 +79,7 @@ class BackendMenuListener
         $purge = $factory
             ->createItem('purge')
             ->setLabel($purgeTitle)
-            ->setUri($request->getScheme() . '://' . $request->getHost() . '?scripts=purge')
+            ->setUri($request->getScheme().'://'.$request->getHost().'?scripts=purge')
             ->setLinkAttribute('class', 'icon-purge')
             ->setLinkAttribute('title', $purgeTitle)
             ->setLinkAttribute('target', '_blank')
