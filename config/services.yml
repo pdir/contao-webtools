@@ -1,0 +1,32 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    _instanceof:
+        Contao\CoreBundle\Framework\FrameworkAwareInterface:
+            calls:
+                - ["setFramework", ["@contao.framework"]]
+
+        Symfony\Component\DependencyInjection\ContainerAwareInterface:
+            calls:
+                - ["setContainer", ["@service_container"]]
+
+    # Listener / Hooks
+
+    pdir.contaowebtools.listener.menu.backend:
+        class: Pdir\ContaoWebtoolsBundle\EventListener\BackendMenuListener
+        public: true
+        arguments:
+            - '@security.helper'
+            - '@router'
+            - '@request_stack'
+            - '@translator'
+            - '@contao.framework'
+        tags:
+            # Make sure this listener comes before the other ones adding to its tree
+            #- { name: kernel.event_listener, priority: 10 }
+
+    pdir.contaowebtools.listener.page.generate:
+        class: Pdir\ContaoWebtoolsBundle\EventListener\GeneratePageListener
+

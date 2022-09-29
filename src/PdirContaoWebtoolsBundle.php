@@ -17,13 +17,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ContaoWebtools;
+namespace Pdir\ContaoWebtoolsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 // Load pdir global functions
-require_once __DIR__.'/Resources/functions/pdump.php';
+require_once __DIR__.'/../functions/pdump.php';
 
 class PdirContaoWebtoolsBundle extends Bundle
 {
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 }

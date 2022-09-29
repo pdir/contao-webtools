@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+use Contao\System;
+use Symfony\Component\HttpFoundation\Request;
+
 /*
  * Web-Tools Bundle for Contao Open Source CMS
  *
@@ -17,17 +20,6 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Pdir\ContaoWebtoolsBundle\Tests;
-
-use Pdir\ContaoWebtoolsBundle\DependencyInjection\PdirContaoWebtoolsExtension;
-use PHPUnit\Framework\TestCase;
-
-class PdirContaoWebtoolsBundleTest extends TestCase
-{
-    public function testCanBeInstantiated(): void
-    {
-        $bundle = new PdirContaoWebtoolsExtension();
-
-        $this->assertInstanceOf('Pdir\ContaoWebtoolsBundle\PdirContaoWebtoolsExtension', $bundle);
-    }
+if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest(System::getContainer()->get('request_stack')->getCurrentRequest() ?? Request::create(''))) {
+    $GLOBALS['TL_CSS'][] = 'bundles/pdircontaowebtools/scss/backend.scss|static';
 }
