@@ -14,16 +14,7 @@ Allow the purge button for all back end users
     WEBTOOLS_ALLOW_PURGE=true
 ```
 
-The purge button requires some sources to do its job. They are passed as an array via config.yml. There are
-some bundles that provide their own sources (for example the Contao themes from [contao-themes.net](https://contao-themes.net)).
-The sources can be set in the bundle configuration:
-
-```
-    // config/config.yml
-    pdir_webtools:
-        purge_sources:
-            - files/mate/sass
-```
+The purge button purge the script cache like maintenance task "Purge data" do.
 
 ## New functions through dependencies 🛠
 

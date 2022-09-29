@@ -65,7 +65,7 @@ class BackendMenuListener
 
     private function buildHeaderMenu(MenuEvent $event, BackendUser $user): void
     {
-        //pdump(__FUNCTION__);
+        $request = $this->requestStack->getCurrentRequest();
         $factory = $event->getFactory();
         $tree = $event->getTree();
 
@@ -74,7 +74,7 @@ class BackendMenuListener
         $purge = $factory
             ->createItem('purge')
             ->setLabel($purgeTitle)
-            ->setUri('?script=purge')
+            ->setUri($request->getScheme() . '://' . $request->getHost() . '?script=purge')
             ->setLinkAttribute('class', 'icon-purge')
             ->setLinkAttribute('title', $purgeTitle)
             ->setLinkAttribute('target', '_blank')
