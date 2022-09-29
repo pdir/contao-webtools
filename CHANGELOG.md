@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.4.1](https://github.com/pdir/contao-webtools/tree/1.2.3) - 2022-09-29
+
+- [Fixed] PHP warning if WEBTOOLS_ALLOW_PURGE is not set
+
 ## [1.4.0](https://github.com/pdir/contao-webtools/tree/1.2.3) - 2022-09-29
 
 - [Added] The hole script cache will automatically be cleared if the debug mode is active.
