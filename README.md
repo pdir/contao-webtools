@@ -4,7 +4,7 @@ pdir webtools for contao web development
 ## Features in this bundle
 - **provides a slightly modified** version of the dump() function called pdump() which produces dump output only when the system is in dev mode: APP_ENV=dev. This should curb unwanted or forgotten dumps() somewhat.
 - **specifies an additional key** in the query string to delete the assets/css folder from the frontend.
-- **add purge button to backend ![Purge Script Cache](/public/icons/zap.svg?raw=true | width=16)**
+- **add purge button to backend ![Purge Script Cache](/public/icons/zap.svg?raw=true)**
 - **automatically purge script cache in debug mode**
 
 ## Configuration the purge button
