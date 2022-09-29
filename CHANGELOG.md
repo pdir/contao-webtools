@@ -22,11 +22,6 @@ can add the key **?scripts=purge** like https://mydomain/?scripts=purge to the q
 - [Removed] ⚠ contao-backup-manager. With the new backup command introduced in Contao 4.13, this bundle will not be maintained anymore. Please refer to <https://docs.contao.org/manual/en/cli/db-backups>.
 - [Added] use Contao ^4.9 || ^5.0
 
-## [1.2.2](https://github.com/pdir/contao-webtools/tree/1.2.2) - 2022-07-11
-
-- [Removed] ⚠ contao-backup-manager. With the new backup command introduced in Contao 4.13, this bundle will not be maintained anymore. Please refer to <https://docs.contao.org/manual/en/cli/db-backups>.
-- [Added] use Contao ^4.9 || ^5.0
-
 ## [1.2.1](https://github.com/pdir/contao-webtools/tree/1.2.1) – 2021-01-05
 
 - [Changed] Allow PHP 8
