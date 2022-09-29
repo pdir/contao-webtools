@@ -57,7 +57,7 @@ class BackendMenuListener
         }
 
         // Add back end link
-        if (!isset($_ENV['WEBTOOLS_ALLOW_PURGE']) && 'true' !== $_ENV['WEBTOOLS_ALLOW_PURGE']) {
+        if (!isset($_ENV['WEBTOOLS_ALLOW_PURGE'])) {
             return;
         }
 
