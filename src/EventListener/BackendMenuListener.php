@@ -56,6 +56,11 @@ class BackendMenuListener
             return;
         }
 
+        // Add back end link
+        if (!isset($_ENV['WEBTOOLS_ALLOW_PURGE']) && 'true' !== $_ENV['WEBTOOLS_ALLOW_PURGE']) {
+            return;
+        }
+
         $name = $event->getTree()->getName();
 
         if ('headerMenu' === $name) {
@@ -74,7 +79,7 @@ class BackendMenuListener
         $purge = $factory
             ->createItem('purge')
             ->setLabel($purgeTitle)
-            ->setUri($request->getScheme() . '://' . $request->getHost() . '?script=purge')
+            ->setUri($request->getScheme() . '://' . $request->getHost() . '?scripts=purge')
             ->setLinkAttribute('class', 'icon-purge')
             ->setLinkAttribute('title', $purgeTitle)
             ->setLinkAttribute('target', '_blank')

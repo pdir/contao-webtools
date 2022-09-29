@@ -22,9 +22,11 @@ namespace Pdir\ContaoWebtoolsBundle\EventListener;
 
 use Contao\Automator;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\FilesModel;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
+use Contao\StringUtil;
 use Contao\System;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -35,6 +37,7 @@ use Webmozart\PathUtil\Path;
  */
 class GeneratePageListener
 {
+    private $scripts;
     private $layout;
 
     /**
@@ -45,14 +48,17 @@ class GeneratePageListener
      */
     public function __invoke(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
-        $this->layout = $layout;
         $container = System::getContainer();
         $kernel = $container->get('kernel');
+
+        $this->scripts = $container->get('request_stack')->getCurrentRequest()->get('scripts');
+        $this->layout = $layout;
 
         // Purge script cache in dev mode
         if ($kernel->isDebug())
         {
             $this->purgeScriptCache();
+            return;
         }
 
         // Purge script cache via button in back end if WEBTOOLS_ALLOW_PURGE=true
@@ -78,8 +84,6 @@ class GeneratePageListener
         if ($this->layout->external !== '')
         {
             $arrExternal = StringUtil::deserialize($this->layout->external);
-
-            dump($arrExternal);
 
             if (!empty($arrExternal) && is_array($arrExternal))
             {
