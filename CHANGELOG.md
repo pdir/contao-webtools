@@ -14,17 +14,18 @@ Types of changes
 
 - [Added] The hole script cache will automatically be cleared if the debug mode is active.
 - [Added] ...the possibility for the frontend user **to delete** the assets/css after modifying files in files/[THEME]/scss. The deletion can be triggered by the additional request key ?**scripts=purge**. The developer editing the modifications via FTP or similar must allow this function with the ENV variable **WEBTOOLS_ALLOW_PURGE=true**. The frontend user now
-can add the key **?scripts=purge** like https://mydomain/?scripts=purge to the query string and the cache will be purged. When flushing the script cache is active for frontend users, a new button ![Purge Script Cache](/public/icons/zap.svg?raw=true) is displayed in the back end header.
+can add the key **?scripts=purge** like https://mydomain/?scripts=purge to the query string and the cache will be purged. When flushing the script cache is active for frontend users, a new button "![Purge Script Cache](/public/icons/zap.svg?raw=true)" is displayed in the back end header.
+- [Removed] Contao 4.9 support
 
 ## [1.3.0](https://github.com/pdir/contao-webtools/tree/1.3.0) - 2022-07-14
 
 - [Removed] ⚠ contao-backup-manager. With the new backup command introduced in Contao 4.13, this bundle will not be maintained anymore. Please refer to <https://docs.contao.org/manual/en/cli/db-backups>.
-- [Added] use contao ^4.9 || ^5.0
+- [Added] use Contao ^4.9 || ^5.0
 
 ## [1.2.2](https://github.com/pdir/contao-webtools/tree/1.2.2) - 2022-07-11
 
 - [Removed] ⚠ contao-backup-manager. With the new backup command introduced in Contao 4.13, this bundle will not be maintained anymore. Please refer to <https://docs.contao.org/manual/en/cli/db-backups>.
-- [Added] use contao ^4.9 || ^5.0
+- [Added] use Contao ^4.9 || ^5.0
 
 ## [1.2.1](https://github.com/pdir/contao-webtools/tree/1.2.1) – 2021-01-05
 
