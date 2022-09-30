@@ -10,9 +10,12 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.4.1](https://github.com/pdir/contao-webtools/tree/1.4.1) - 2022-09-30
+## [1.5.0](https://github.com/pdir/contao-webtools/tree/1.5.0) - 2022-09-30
 
 - [Added] Usability improvement in the backend - Show page, article and module ids by default, disable "Copy" when duplicating
+
+## [1.4.1](https://github.com/pdir/contao-webtools/tree/1.4.1) - 2022-09-30
+
 - [Fixed] PHP warning if WEBTOOLS_ALLOW_PURGE is not set
 
 ## [1.4.0](https://github.com/pdir/contao-webtools/tree/1.4.0) - 2022-09-29
