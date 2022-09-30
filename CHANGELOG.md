@@ -10,11 +10,12 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.4.1](https://github.com/pdir/contao-webtools/tree/1.2.3) - 2022-09-29
+## [1.4.1](https://github.com/pdir/contao-webtools/tree/1.4.1) - 2022-09-30
 
+- [Added] Usability improvement in the backend - Show page, article and module ids by default, disable "Copy" when duplicating
 - [Fixed] PHP warning if WEBTOOLS_ALLOW_PURGE is not set
 
-## [1.4.0](https://github.com/pdir/contao-webtools/tree/1.2.3) - 2022-09-29
+## [1.4.0](https://github.com/pdir/contao-webtools/tree/1.4.0) - 2022-09-29
 
 - [Added] The hole script cache will automatically be cleared if the debug mode is active.
 - [Added] ...the possibility for the frontend user **to delete** the assets/css after modifying files in files/[THEME]/scss. The deletion can be triggered by the additional request key ?**scripts=purge**. The developer editing the modifications via FTP or similar must allow this function with the ENV variable **WEBTOOLS_ALLOW_PURGE=true**. The frontend user now

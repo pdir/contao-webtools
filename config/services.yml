@@ -14,7 +14,7 @@ services:
 
     # Listener / Hooks
 
-    pdir.contaowebtools.listener.menu.backend:
+    pdir.contao_webtools.listener.menu.backend:
         class: Pdir\ContaoWebtoolsBundle\EventListener\BackendMenuListener
         public: true
         arguments:
@@ -27,6 +27,8 @@ services:
             # Make sure this listener comes before the other ones adding to its tree
             #- { name: kernel.event_listener, priority: 10 }
 
-    pdir.contaowebtools.listener.page.generate:
+    pdir.contao_webtools.listener.page.generate:
         class: Pdir\ContaoWebtoolsBundle\EventListener\GeneratePageListener
 
+    pdir.contao_webtools.listener.data_container.backend_usability:
+        class: Pdir\ContaoWebtoolsBundle\EventListener\DataContainer\BackendUsabilityListener
