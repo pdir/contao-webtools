@@ -42,7 +42,7 @@ class BackendUsabilityListener
 
         if ('tl_module' === $table) {
             // Show module ids
-            $GLOBALS['TL_DCA']['tl_module']['list']['sorting']['child_record_callback'] = static fn($row) => '<div style="float:left;">' . $row['name'] . ' <span style="color:#999;padding-left:3px;">[' . $GLOBALS['TL_LANG']['FMD'][$row['type']][0] . '] (ID: ' . $row['id'] . ")</span></div>\n";
+            $GLOBALS['TL_DCA']['tl_module']['list']['sorting']['child_record_callback'] = static fn($row) => '<div class="tl_content_left">' . $row['name'] . ' <span style="color:#999;padding-left:3px;">[' . $GLOBALS['TL_LANG']['FMD'][$row['type']][0] . '] (ID: ' . $row['id'] . ")</span></div>\n";
         }
     }
 }
