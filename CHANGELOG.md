@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.5.1](https://github.com/pdir/contao-webtools/tree/1.5.1) - 2024-02-23
+## [1.5.1](https://github.com/pdir/contao-webtools/tree/1.5.1) - 2024-02-26
 
 - [Fixed] Fix display of the backend modules
 
