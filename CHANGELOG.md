@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.5.1](https://github.com/pdir/contao-webtools/tree/1.5.1) - 2024-02-26
+
+- [Fixed] Fix display of the backend modules
+
 ## [1.5.0](https://github.com/pdir/contao-webtools/tree/1.5.0) - 2022-09-30
 
 - [Added] Usability improvement in the backend - Show page, article and module ids by default, disable "Copy" when duplicating
