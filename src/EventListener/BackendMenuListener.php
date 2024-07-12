@@ -21,10 +21,7 @@ namespace Pdir\ContaoWebtoolsBundle\EventListener;
 
 use Contao\BackendUser;
 use Contao\CoreBundle\Event\MenuEvent;
-use Contao\CoreBundle\Framework\ContaoFramework;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Routing\RouterInterface;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Terminal42\ServiceAnnotationBundle\Annotation\ServiceTag;
 
@@ -33,26 +30,17 @@ use Terminal42\ServiceAnnotationBundle\Annotation\ServiceTag;
  */
 class BackendMenuListener
 {
-    private Security $security;
-    private RouterInterface $router;
-    private RequestStack $requestStack;
-    private TranslatorInterface $translator;
-    private ContaoFramework $framework;
-
-    public function __construct(Security $security, RouterInterface $router, RequestStack $requestStack, TranslatorInterface $translator, ContaoFramework $framework)
-    {
-        $this->security = $security;
-        $this->router = $router;
-        $this->requestStack = $requestStack;
-        $this->translator = $translator;
-        $this->framework = $framework;
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        private readonly TranslatorInterface $translator,
+    ) {
     }
 
     public function __invoke(MenuEvent $event): void
     {
-        $user = $this->security->getUser();
+        $user = BackendUser::getInstance();
 
-        if (!$user instanceof BackendUser) {
+        if (null === $user) {
             return;
         }
 
