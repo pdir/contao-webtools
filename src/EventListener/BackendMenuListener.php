@@ -23,6 +23,7 @@ use Contao\BackendUser;
 use Contao\CoreBundle\Event\MenuEvent;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Terminal42\ServiceAnnotationBundle\Annotation\ServiceTag;
 
 /**
@@ -33,14 +34,15 @@ class BackendMenuListener
     public function __construct(
         private readonly RequestStack $requestStack,
         private readonly TranslatorInterface $translator,
+        private readonly TokenStorageInterface $tokenStorage
     ) {
     }
 
     public function __invoke(MenuEvent $event): void
     {
-        $user = BackendUser::getInstance();
+        $user = $this->tokenStorage->getToken()?->getUser();
 
-        if (null === $user) {
+        if (!$user instanceof BackendUser) {
             return;
         }
 
