@@ -10,7 +10,7 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
-## [1.6.0](https://github.com/pdir/contao-webtools/tree/1.6.0) - 2024-07-11
+## [1.6.0](https://github.com/pdir/contao-webtools/tree/1.6.0) - 2024-08-01
 
 - [Added] Add compatibility for Contao 5.4+
 - [Removed] We removed support for PHP <=8.0
