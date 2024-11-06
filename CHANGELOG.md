@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.6.1](https://github.com/pdir/contao-webtools/tree/1.6.1) - 2024-11-06
+
+- [Fixed] Update services.yml to support Contao 5.4
+
 ## [1.6.0](https://github.com/pdir/contao-webtools/tree/1.6.0) - 2024-08-01
 
 - [Added] Add compatibility for Contao 5.4+
