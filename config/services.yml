@@ -4,22 +4,11 @@ services:
         autoconfigure: true
 
     # Listener / Hooks
-
-    pdir.contao_webtools.listener.menu.backend:
-        class: Pdir\ContaoWebtoolsBundle\EventListener\BackendMenuListener
+    Pdir\ContaoWebtoolsBundle\EventListener\BackendMenuListener:
         public: true
-        arguments:
-            - '@security.helper'
-            - '@router'
-            - '@request_stack'
-            - '@translator'
-            - '@contao.framework'
-        tags:
-            # Make sure this listener comes before the other ones adding to its tree
-            #- { name: kernel.event_listener, priority: 10 }
 
-    pdir.contao_webtools.listener.page.generate:
-        class: Pdir\ContaoWebtoolsBundle\EventListener\GeneratePageListener
+    Pdir\ContaoWebtoolsBundle\EventListener\GeneratePageListener:
+        public: true
 
-    pdir.contao_webtools.listener.data_container.backend_usability:
-        class: Pdir\ContaoWebtoolsBundle\EventListener\DataContainer\BackendUsabilityListener
+    Pdir\ContaoWebtoolsBundle\EventListener\DataContainer\BackendUsabilityListener:
+        public: true

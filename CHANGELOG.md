@@ -10,9 +10,18 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.6.0](https://github.com/pdir/contao-webtools/tree/1.6.0) - 2024-08-01
+
+- [Added] Add compatibility for Contao 5.4+
+- [Removed] We removed support for PHP <=8.0
+
 ## [1.5.1](https://github.com/pdir/contao-webtools/tree/1.5.1) - 2024-02-26
 
 - [Fixed] Fix display of the backend modules
+
+## [1.5.1](https://github.com/pdir/contao-webtools/tree/1.5.1) - 2022-11-06
+
+- [Fixed] For frontend modules without translation the type is now used
 
 ## [1.5.0](https://github.com/pdir/contao-webtools/tree/1.5.0) - 2022-09-30
 
