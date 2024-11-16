@@ -10,6 +10,10 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [1.6.2](https://github.com/pdir/contao-webtools/tree/1.6.2) - 2024-11-16
+
+- [Fixed] Use local CSS preprocessors
+
 ## [1.6.1](https://github.com/pdir/contao-webtools/tree/1.6.1) - 2024-11-06
 
 - [Fixed] Update services.yml to support Contao 5.4
