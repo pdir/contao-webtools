@@ -28,6 +28,6 @@ class PdirContaoWebtoolsBundleTest extends TestCase
     {
         $bundle = new PdirContaoWebtoolsExtension();
 
-        $this->assertInstanceOf('Pdir\ContaoWebtoolsBundle\PdirContaoWebtoolsExtension', $bundle);
+        $this->assertInstanceOf(PdirContaoWebtoolsExtension::class, $bundle);
     }
 }

@@ -19,11 +19,9 @@ declare(strict_types=1);
 
 namespace Pdir\ContaoWebtoolsBundle\EventListener\DataContainer;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 
-/**
- * @Hook("loadDataContainer")
- */
+#[AsHook('loadDataContainer')]
 class BackendUsabilityListener
 {
     public function __invoke(string $table): void
@@ -42,7 +40,7 @@ class BackendUsabilityListener
 
         if ('tl_module' === $table) {
             // Show module ids
-            $GLOBALS['TL_DCA']['tl_module']['list']['sorting']['child_record_callback'] = static fn($row) => '<div class="tl_content_left">' . $row['name'] . ' <span style="color:#999;padding-left:3px;">[' . $GLOBALS['TL_LANG']['FMD'][$row['type']][0] . '] (ID: ' . $row['id'] . ")</span></div>\n";
+            $GLOBALS['TL_DCA']['tl_module']['list']['sorting']['child_record_callback'] = static fn($row) => '<div class="tl_content_left">' . $row['name'] . ' <span style="color:#999;padding-left:3px;">[' . ($GLOBALS['TL_LANG']['FMD'][$row['type']][0] ?? $row['type']) . '] (ID: ' . $row['id'] . ")</span></div>\n";
         }
     }
 }
