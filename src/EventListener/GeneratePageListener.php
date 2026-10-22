@@ -20,43 +20,44 @@ declare(strict_types=1);
 namespace Pdir\ContaoWebtoolsBundle\EventListener;
 
 use Contao\Automator;
-use Contao\CoreBundle\ServiceAnnotation\Hook;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 use Contao\FilesModel;
 use Contao\LayoutModel;
 use Contao\PageModel;
 use Contao\PageRegular;
 use Contao\StringUtil;
-use Contao\System;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\HttpFoundation\RequestStack;
 
-/**
- * @Hook("generatePage")
- */
+#[AsHook('generatePage')]
 class GeneratePageListener
 {
-    private $scripts;
-    private $layout;
+    public function __construct(
+        private readonly RequestStack $requestStack,
+        #[Autowire('%kernel.debug%')]
+        private readonly bool $debug,
+        #[Autowire('%kernel.project_dir%')]
+        private readonly string $projectDir,
+    ) {
+    }
 
     public function __invoke(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
-        $container = System::getContainer();
-        $kernel = $container->get('kernel');
-
-        $this->scripts = $container->get('request_stack')->getCurrentRequest()->get('scripts');
-        $this->layout = $layout;
-
         // Purge script cache in dev mode
-        if ($kernel->isDebug()) {
-            $this->purgeScriptCache();
+        if ($this->debug) {
+            $this->purgeScriptCache($layout);
 
             return;
         }
 
+        $scripts = $this->requestStack->getCurrentRequest()?->query->get('scripts');
+
         // Purge script cache via button in back end if WEBTOOLS_ALLOW_PURGE=true
         if (
             isset($_ENV['WEBTOOLS_ALLOW_PURGE']) && 'true' === $_ENV['WEBTOOLS_ALLOW_PURGE'] &&
-            'purge' === $this->scripts
+            'purge' === $scripts
         ) {
-            $this->purgeScriptCache();
+            $this->purgeScriptCache($layout);
         }
     }
 
@@ -67,23 +68,30 @@ class GeneratePageListener
      *
      * @author     Marko Cupic <m.cupic@gmx.ch>
      */
-    public function purgeScriptCache(): void
+    public function purgeScriptCache(LayoutModel $layout): void
     {
         $objAutomator = new Automator();
         $objAutomator->purgeScriptCache();
-        $rootDir = System::getContainer()->getParameter('kernel.project_dir');
 
-        if ('' !== $this->layout->external) {
-            $arrExternal = StringUtil::deserialize($this->layout->external);
+        if (empty($layout->external)) {
+            return;
+        }
 
-            if (!empty($arrExternal) && \is_array($arrExternal)) {
-                $objFile = FilesModel::findMultipleByUuids($arrExternal);
+        $arrExternal = StringUtil::deserialize($layout->external);
 
-                while ($objFile->next()) {
-                    if (is_file($rootDir.'/'.$objFile->path)) {
-                        touch($rootDir.'/'.$objFile->path);
-                    }
-                }
+        if (empty($arrExternal) || !\is_array($arrExternal)) {
+            return;
+        }
+
+        $objFile = FilesModel::findMultipleByUuids($arrExternal);
+
+        if (null === $objFile) {
+            return;
+        }
+
+        while ($objFile->next()) {
+            if (is_file($this->projectDir.'/'.$objFile->path)) {
+                touch($this->projectDir.'/'.$objFile->path);
             }
         }
     }

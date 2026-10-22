@@ -10,6 +10,13 @@ Types of changes
     Security in case of vulnerabilities.
 )
 
+## [2.0.0](https://github.com/pdir/contao-webtools/tree/2.0.0) - 2026-10-22
+
+- [Changed] Require Contao 5.3+ (Symfony 6.4+), prepare for Contao 6
+- [Removed] We removed support for Contao 4.13 and Contao <5.3
+- [Fixed] Register hooks and event listeners via PHP attributes instead of annotations
+- [Fixed] Avoid errors when no request or no external layout files exist
+
 ## [1.6.2](https://github.com/pdir/contao-webtools/tree/1.6.2) - 2024-11-16
 
 - [Fixed] Use local CSS preprocessors
